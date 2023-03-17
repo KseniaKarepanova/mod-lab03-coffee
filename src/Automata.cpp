@@ -1,6 +1,6 @@
 #include "Automata.h"
 
-Automata::Automata(string menu1[], int prices1[], int count1) {
+Automata::Automata(std::string menu1[], int prices1[], int count1) {
     cash = 0;
     state = Off;
     menu = menu1;
@@ -9,28 +9,28 @@ Automata::Automata(string menu1[], int prices1[], int count1) {
     chosen = -1;
 }
 void Automata::on() {
-    if(state==Off)
+    if (state == Off)
     state = Wait;
 }
 void Automata::off() {
-    if(state==Wait)
+    if (state == Wait)
     state = Off;
 }
 void Automata::coin(int summa) {
     if ((state == Wait) || (state == Accept)) {
         state = Accept;
         cash = cash + summa;
-    }  
-}
-void Automata::getMenu() {
-   
-    cout << "Menu:" << endl;
-    for (int i = 0; i < count; i++) {
-        cout << to_string(i) + ":" + menu[i] + "   cost   " + to_string(prices[i])+"rub." << endl;
-        
     }
 }
-string Automata::getState() {
+void Automata::getMenu() {
+    std::cout << "Menu:" << std::endl;
+    for (int i = 0; i < count; i++) {
+        std::cout << std::to_string(i) + ":" + menu[i];
+        std::cout << "   cost   " + std::to_string(prices[i]);
+        std::cout << " rub." << std::endl;
+    }
+}
+std::string Automata::getState() {
     if (state == Off) return "Off";
     if (state == Wait) return "Wait";
     if (state == Accept) return "Accept";
@@ -40,25 +40,23 @@ string Automata::getState() {
 void Automata::choice(int id_chosen) {
     if (state == Accept) {
         chosen = id_chosen;
-        cout << "Your choice" << to_string(chosen) << endl;
+        std::cout << "Your choice" << std::to_string(chosen) << std::endl;
         state = Check;
     }
-   
 }
 void Automata::check() {
     if (state == Check) {
         if (cash >= prices[chosen]) {
             cash = cash - prices[chosen];
-            cout << "There is enough money in the account" << endl;
-            cout << "Your change " + to_string(cash) << endl;
+            std::cout << "There is enough money in the account" << std::endl;
+            std::cout << "Your change " + std::to_string(cash) << std::endl;
             state = Cook;
             chosen = -1;
         } else {
             state = Accept;
-            cout << "There is not enough money in the account" << endl;
+            std::cout << "There is not enough money in the account" << std::endl;
         }
     }
-       
 }
 void Automata::cancel() {
     if ((state == Accept) || (state == Check)) {
@@ -66,17 +64,14 @@ void Automata::cancel() {
         cash = 0;
         chosen = -1;
     }
-   
 }
 void Automata::cook() {
     if (state == Cook)
-        cout << "the drink is being prepared" << endl;
-
+        std::cout << "the drink is being prepared" << std::endl;
 }
 void Automata::finish() {
     if (state == Cook) {
         state = Wait;
         chosen = -1;
     }
-    
 }
