@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Automat.h"
+#include "Automata.h"
 using namespace std;
 
 int main()
@@ -8,7 +8,7 @@ int main()
     string menu[] = { "Latte", "Espresso macchiato", "Americano ", "Cappuccino", "Coffee with milk"};
     int prices[] = {100, 110, 80, 110,70};
     
-    Automat automat(menu, prices, 5);
+    Automata automat(menu, prices, 5);
     automat.on();
     cout << automat.getState()<<endl;
     automat.coin(100);
