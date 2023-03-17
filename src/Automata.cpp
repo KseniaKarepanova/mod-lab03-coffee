@@ -1,3 +1,4 @@
+//Copyright 2022 UNN_IASR
 #include "Automata.h"
 
 Automata::Automata(std::string menu1[], int prices1[], int count1) {
@@ -54,7 +55,7 @@ void Automata::check() {
             chosen = -1;
         } else {
             state = Accept;
-            std::cout << "There is not enough money in the account" << std::endl;
+            std::cout << "There is not enough money" << std::endl;
         }
     }
 }
