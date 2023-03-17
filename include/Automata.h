@@ -1,4 +1,5 @@
-#define INCLUDE_AUTOMATA_H_
+#pragma once
+
 #include<iostream>
 #include <string>
 
