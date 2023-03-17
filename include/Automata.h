@@ -5,7 +5,7 @@
 #include <string>
 
 class Automata {
-private:
+ private:
     enum States { Off, Wait, Accept, Check, Cook };
     int cash;
     std::string* menu;
@@ -13,7 +13,7 @@ private:
     States state;
     int chosen;
     int count;
-public:
+ public:
     Automata(std::string menu[], int prices[], int count);
     void on();
     void off();
