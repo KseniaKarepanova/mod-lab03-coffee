@@ -1,18 +1,21 @@
+//Copyright 2022 UNN_IASR
 #pragma once
 
 #include<iostream>
 #include <string>
 
 class Automata {
-private:
-    enum States { Off, Wait, Accept, Check, Cook }; //перечисляем состояния автомата
-    int cash; //хранение текущей суммы
-    std::string* menu; //меню
-    int* prices;//цены
-    States state;//состояние текущее
-    int chosen; //выбранный напиток
-    int count; //количество напитков в меню
-public:
+    
+    private:
+    enum States { Off, Wait, Accept, Check, Cook };
+    int cash;
+    std::string* menu;
+    int* prices;
+    States state;
+    int chosen;
+    int count;
+    
+    public:
     Automata(std::string menu[], int prices[], int count);
     void on();
     void off();
