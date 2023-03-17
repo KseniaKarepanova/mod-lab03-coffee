@@ -1,6 +1,6 @@
-#include "Automat.h"
+#include "Automata.h"
 
-Automat::Automat(string menu1[], int prices1[], int count1) {
+Automata::Automata(string menu1[], int prices1[], int count1) {
     cash = 0;
     state = Off;
     menu = menu1;
@@ -8,21 +8,21 @@ Automat::Automat(string menu1[], int prices1[], int count1) {
     count = count1;
     chosen = -1;
 }
-void Automat::on() {
+void Automata::on() {
     if(state==Off)
     state = Wait;
 }
-void Automat::off() {
+void Automata::off() {
     if(state==Wait)
     state = Off;
 }
-void Automat::coin(int summa) {
+void Automata::coin(int summa) {
     if ((state == Wait) || (state == Accept)) {
         state = Accept;
         cash = cash + summa;
     }  
 }
-void Automat::getMenu() {
+void Automata::getMenu() {
    
     cout << "Menu:" << endl;
     for (int i = 0; i < count; i++) {
@@ -30,14 +30,14 @@ void Automat::getMenu() {
         
     }
 }
-string Automat::getState() {
+string Automata::getState() {
     if (state == Off) return "Off";
     if (state == Wait) return "Wait";
     if (state == Accept) return "Accept";
     if (state == Check) return "Check";
     if (state == Cook) return "Cook";
 }
-void Automat::choice(int id_chosen) {
+void Automata::choice(int id_chosen) {
     if (state == Accept) {
         chosen = id_chosen;
         cout << "Your choice" << to_string(chosen) << endl;
@@ -45,7 +45,7 @@ void Automat::choice(int id_chosen) {
     }
    
 }
-void Automat::check() {
+void Automata::check() {
     if (state == Check) {
         if (cash >= prices[chosen]) {
             cash = cash - prices[chosen];
@@ -60,7 +60,7 @@ void Automat::check() {
     }
        
 }
-void Automat::cancel() {
+void Automata::cancel() {
     if ((state == Accept) || (state == Check)) {
         state = Wait;
         cash = 0;
@@ -68,12 +68,12 @@ void Automat::cancel() {
     }
    
 }
-void Automat::cook() {
+void Automata::cook() {
     if (state == Cook)
         cout << "the drink is being prepared" << endl;
 
 }
-void Automat::finish() {
+void Automata::finish() {
     if (state == Cook) {
         state = Wait;
         chosen = -1;
