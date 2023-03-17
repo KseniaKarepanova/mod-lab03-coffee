@@ -32,11 +32,14 @@ void Automata::getMenu() {
     }
 }
 std::string Automata::getState() {
-    if (state == Off) return "Off";
-    if (state == Wait) return "Wait";
-    if (state == Accept) return "Accept";
-    if (state == Check) return "Check";
-    if (state == Cook) return "Cook";
+    switch (state) {
+    case Off: return "Off";
+    case Wait: return "Wait";
+    case Accept: return "Accept";
+    case Check: return "Check";
+    case Cook: return "Cook";
+    }
+    return " ";
 }
 void Automata::choice(int id_chosen) {
     if (state == Accept) {
