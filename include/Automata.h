@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-class Automat
+class Automata
 {
 private:
 	enum States { Off, Wait, Accept, Check, Cook }; //перечисляем состояния автомата
@@ -13,7 +13,7 @@ private:
 	int chosen; //выбранный напиток
 	int count; //количество напитков в меню
 public:
-	Automat(string menu[], int prices[], int count);
+	Automata(string menu[], int prices[], int count);
 	void on();
 	void off();
 	void coin(int summa);
