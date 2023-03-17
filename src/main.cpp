@@ -1,39 +1,35 @@
+//Copyright 2022 UNN_IASR
+
 #include <iostream>
 #include <string>
 #include "Automata.h"
-using namespace std;
 
 int main()
 {
-    string menu[] = { "Latte", "Espresso macchiato", "Americano ", "Cappuccino", "Coffee with milk"};
-    int prices[] = {100, 110, 80, 110,70};
-    
-    Automata automat(menu, prices, 5);
+    std::string menu[] = {"Latte", "Espresso", "Americano"};
+    int prices[] = {100, 110, 80};
+    Automata automat(menu, prices, 3);
     automat.on();
-    cout << automat.getState()<<endl;
+    std::cout << automat.getState() << std::endl;
     automat.coin(100);
-    cout << automat.getState() << endl;
+    std::cout << automat.getState() << std::endl;
     automat.cancel();
-    cout << automat.getState() << endl;
+    std::cout << automat.getState() << std::endl;
     automat.coin(100);
-    cout << automat.getState() << endl;
-
+    std::cout << automat.getState() << std::endl;
     automat.getMenu();
     automat.choice(1);
-    cout << automat.getState() << endl;
-
+    std::cout << automat.getState() << std::endl;
     automat.check();
-    cout << automat.getState() << endl;
-   
+    std::cout << automat.getState() << std::endl;
     automat.coin(100);
-    cout << automat.getState() << endl;
+    std::cout << automat.getState() << std::endl;
     automat.choice(1);
-    cout << automat.getState() << endl;
-
+    std::cout << automat.getState() << std::endl;
     automat.check();
-    cout << automat.getState() << endl;
+    std::cout << automat.getState() << std::endl;
     automat.cook();
-    cout << automat.getState() << endl;
+    std::cout << automat.getState() << std::endl;
     automat.finish();
-    cout << automat.getState() << endl;
+    std::cout << automat.getState() << std::endl;
 }
