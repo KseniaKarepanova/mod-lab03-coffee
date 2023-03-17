@@ -79,7 +79,6 @@ TEST(test8, test_check) {
   std::string menu[] = { "Latte", "Espresso macchiato", "Americano"};
   int prices[] = {100, 110, 80};
   Automata automat(menu, prices, 3);
-  Automata automat(menu, prices, 5);
   automat.on();
   automat.coin(100);
   automat.choice(1);
