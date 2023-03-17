@@ -4,8 +4,7 @@
 #include <string>
 #include "Automata.h"
 
-int main()
-{
+int main() {
     std::string menu[] = {"Latte", "Espresso", "Americano"};
     int prices[] = {100, 110, 80};
     Automata automat(menu, prices, 3);
